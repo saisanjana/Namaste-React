@@ -1,0 +1,46 @@
+What is emmet?
+Emmet is a plugin for editors to improve the html css workflow. Abbreviations are 
+heart of emmet. Gives boiler plate code using abbreviations.
+html:5 -> enter -> gives the boiler plate code of html
+li*5>a{item $} -> enter -> gives 5 li items with each having <a> item 1/2/... </a> child 
+
+Library vs Framework?
+Library is a pre written code (collection of helpers, modules etc) which can 
+be used in the existing project. With Library there is no inversion of control. 
+We can decide how the library works. Libraries boost the work flow of the project.
+Whereas framework is a foundation upon which applications can be made. Framework is a 
+collection of libabries. Framework has apis, toolsets, workflows etc. There is IOC in 
+frameworks, i.e framework decides how the work flow goes.
+
+What is cdn? Why do we use it?
+CDN stands for content delivery network, and it is refers to a group of servers which work
+together to deliver the content faster. It is used to decrease latency and increase
+performance of the delivery of content like images,audios,files etc.
+
+Why is React known as React?
+Because it is meant to react towards the change in data/state.
+
+What is crossorigin in script tag?
+cross origin specifies the settings of cors header when the browsers makes a request for the source given in script tag.
+It can have two values:  anonymous/"" , user-credentials
+anonymous - doesn't need an authenticated users. No exchange of user credentials using cookies. credentialsflag is set to same-origin
+user-credentials - requires exchange of user credentials through cookies. credentials flag is set to "include"
+
+React vs ReactDom?
+React is designed to use in multiple platforms, web mobile , rendering engines etc. To support the DOM related cases, reactDOM is required.
+
+react.developement.js vs react.production.js in cdn links?
+production cdn is minified version of development cdn and is more optimised as it will be used in web hosted apps.
+
+Async vs Defer
+There are three ways browser loads script tags:
+1. None (none of async or defer i.e. default): Browser will run your script tags immediately before rendering the elements below your script tags. Will run as per the written order.
+2. Async: Will run the script files along with the rendering of the html. Will run the script files as per their download time order.
+3. defer: Will run the script tag after the DOM parsing is done/ rendering is done.
+
+
+
+
+
+
+
