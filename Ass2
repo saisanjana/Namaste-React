@@ -1,0 +1,66 @@
+What is NPM?
+Npm is a package manager. It is a libabry and registry for JS projects.  It is used in JS projects to install the packages and handle transitive dependencies between the installed packages by maintaining a dependency tree. It also creates a file called package.json to mainatain all the configurations of the packages which are installed.
+
+What is parcel/webpack? Why do we need it?
+Parcel and webpack are few of the Bundlers. Bundler is a development tool that combines many JS files into a single one that is productionn ready loadable inside the browser. It also generates a dependency graph as it traverses your lines of code.
+
+What is .parcel-cache?
+parcel-cache is a file created by parcel in the process of bundling, so that when it rebuilds it can skip re-parse and re-analyse from scratch. Its the key reason for the fast process of parcel.
+
+what is npx?
+npx is a command for executing the npm package.
+
+What is the difference between dependencies and dev dependencies?
+dev dependencies are the packages that are only needed in local development environment but dependencies are the pacakes which are needed globally i.e even in production.
+
+What is Tree Shaking?
+It is used to describe removal of dead code. It relies on the import and export statements to detect if the code modules are exported or imported anywhere in all the files. This is done by the bundlers to make the code production ready which has clean structure and minimal file size.
+
+What is HMR?
+HMR is hot module replacement which is a feature of Parcel.Asyour write code parcel automatically builds code and updates your app in the browser.By default it reloads the page, but in some cases it does HMR for better developer experience.
+
+Super powers of Parcel?
+Starts a local dev server
+HMR
+Minifying
+Code cleaning
+File watching (written in cpp)
+Bundling
+Super fast
+Manages dev and production build
+Image optimizations
+Caching while development
+Compression
+Compatible with older versions of browsers
+Ability to host securely https
+Manages port numbers for serving
+Consistent hashing algorithm
+
+Difference between package.json and package-lock.json?
+Package.json contains all the configurations of the packages that are installed in the project. Each of the package has a version and that version can have ^ or ~ symbols too, for automatically updating the pacakges. 
+Package lock.json file locks all the versions and has the current used version of the package in the project. It has all the details related to the installed package.
+
+Why should I not modify package-lock.json?
+package-lock.json is a file craeted by the package manager and locks the versions of all the installed packages. We shouldn't be disturbing the dependency tree that it has created internally.
+
+What are node_modules and should we push it our repo?
+node_modules are the database for all our dependenecies of the project. It contains all the code of the dependencies.
+We shouldn't push node_modules to git as its a very large file and it can be auto generated when we install our packages using npm.
+
+What is the dist folder?
+When we ignite our app (run our app on server using parcel), the build files which are produced by the bundler are kept into dist folder.
+So it contains the minimised version of the whole source code.
+
+What is browserslist?
+Browserlist is a tool that allows specific versions to be supported in our app. With this list the bundler does the tasks required to minify and write polyfills etc.
+
+^ an ~?
+These are symbols used in package.json file to specify the version of the package to be selected.
+^ - We can accept minor releases and patch releases, but not a major release when updating our package. i,e for ^2.3.4, will use form 2.3.4 to 3.0.0
+~ - Approximately equal to the version. Will update you to all future patch versions without incrementing minor version. ~1.2.3 will use releases upto < 1.3.0.
+
+Script types in html?
+1. attribute not set/empty string/JS MIME(Multipurpose internet mail extensions) - Classic JS script
+2. module - file is treated as a ES 6 module and processed in defer mode. It requires the use of CORS fetching.
+3. import map - Has a JSON that developers can use to control how the browser resolves module specifications when importing JS modules - ????
+4. blocking - explicitly indicates that certain operations should be blocked on fetching of the script.
