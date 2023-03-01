@@ -1,0 +1,29 @@
+What is JSX?
+JSX is a syntactic extension to Javascript. It looks like template language(html like) but
+it has full powers of Javascript. It is used to produce React elements (user interfaces in react)
+
+Super powers of JSX
+improved readability
+easy to understand
+reusable code
+dynamic rendering
+faster redering -- how? Allows compiler to optimise code
+simplifies debugging
+
+Role of "type" attribute in script tag? What are the values for it?
+the type attribute in script tag is used to specify the MIME type of JS that is being loaded
+MIME - Multipurpose internet mail extension (MIME types are used to identify the format of files sent over the internet.)
+types of scripts:
+1. attribute not set, empty string - indicates a classic script
+2. "module" -- treated as JS module, 
+3. "importmap" -- to be seen
+4. Any other value -- wont be processed by the browser
+5. "blocking" -- to explicitly indicate that certain operations should be blocked
+
+{TitleComponent} vs {<TitleComponent/>}
+First one is a react element and the second one is a react component.
+first one is a JS variable and the second one is a JS function
+
+
+
+
