@@ -1,31 +1,70 @@
-#h1{
-    color:purple
+.appLayout{
+    display: grid;
+    /* border: 1px solid red; */
 }
 .header{
-    background-color: blue;
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    justify-content: space-between;
     display: flex;
-    box-shadow: 5px 10px rgb(176, 183, 183,0.2);
+    justify-content: space-between;
+    /* border: 2px solid black; */
+    box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.1);
+}
+.appLogo{
+    margin: -10px;
+    padding-left: 150px;
+    /* border: 2px solid black; */
+    height: 90px;
+    width: 40x;
 }
 
-.logo{
-    height: 50px;
-    width: 50px;
-    background-color: black;
-    margin-left: 20px;
+.header > ul{
+    list-style-type: none;
+    display: flex;
+    padding-right: 150px;
 }
-.user{
-    height: 50px;
-    width: 50px;
-    background-color: pink;
-    margin-right: 20px;
-    border-radius: 50%;
+
+.header > ul >li{
+    padding: 20px;
 }
-.search{
-    height: 50px;
+body{
+    margin: 0px;
+}
+.sHeader{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.sHeader > hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+.sHeaderItems{
+    display: flex;
+    justify-content: space-between;
+}
+.appBody{
+    margin-left: 150px;
+    margin-right: 150px;
+    display: flex;
+    overflow-y: auto;
+    flex-wrap: wrap;
+}
+.restoCard > img{
+    height: 200px;
     width: 200px;
-    background-color: white;
+    margin: 10px;
+    
+}
+
+.restoCard{
+    /* border: 2px solid black; */
+    width: 220px;
+}
+.restoCard:hover{
+    border: 1px solid grey;
+}
+.restoCardItems {
+    margin: 10px;
 }

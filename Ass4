@@ -1,0 +1,47 @@
+1.Is JSX mandatory for React?
+JSX is not mandatory for using React, but it is the most commonly used syntax for creating React elements. React can also be used with plain JavaScript, but JSX provides a concise and expressive syntax for defining the structure and content of React components.
+
+2.Is Es6 mandatory fro React?
+ES6 (ECMAScript 6) is not mandatory for using React, but it is highly recommended. React is written in modern JavaScript, which means that it takes advantage of many features introduced in ES6 and later versions of JavaScript.
+
+3.How to write comments in JSX?
+We can write any javascript code in { }. So, we can embed JS comments inside the brackets
+{// this is a comment}
+{/*......*/}
+
+4.<React.Fragment></React.Fragment> vs <></>
+Both are one and the same. we can use <></> for better readability and clean code
+
+5.What is virtual DOM?
+It is a representation of the actual DOM in our code. It is just a programming concept and not a part of browsers rendering engine. Is is just a light weight, in memory representation of the actual DOM. It is used to optimise the updates made to actual DOM resulting in fast and efficient rendering. Also virtual DOM can provide a snapshot of what users sees at a point of time. This can help in debugging as well
+
+6.Reconciliation in react?
+It is an algorithm to diff from one tree to other. The diffing algorithm finds what needs to be updated, and it finds out the minimum updates required to make changes in the actual DOM. So, reconciliation used virtual dom to get this job done.
+
+Reconciliation is the process by which React updates the DOM to reflect changes in a component's state or props. When a component's state or props change, React creates a new virtual DOM representation of the component and compares it to the previous virtual DOM representation.
+
+7.What is React Fiber?
+React Fibre is the new diffing engine used by React.React Fiber is a complete rewrite of React's core algorithm that was introduced in React version 16. The goal of React Fiber is to improve the performance and rendering capabilities of React, especially for large and complex applications.
+- Incremental rendering -breakinf down updates into smaller units and putting them in separate frames so that the main thread wont be blocked for much time. Also, it can priorotise its renderings
+
+8.Why do we need keys in react and when do we need it?
+Keys are used to uniquely indentify the elements. Keys are needed in react for efficient rendering. lets say we have 4 divs and one more div is introduced, now while updating react cannot identify where to put that new div, so it re renders everything. But if we give keys react can identify what got changed and update only that part.
+
+Efficient updates: When React renders a list of elements, it needs to know which elements have changed, been added, or been removed. By using keys, React can quickly determine which elements are new, which have been removed, and which need to be updated. This can significantly improve the performance of React applications, especially for large and complex lists.
+
+Avoiding re-renders: If two elements in a list have the same key, React will assume that they are the same element and will not re-render them. This can be useful for optimizing the rendering of large lists, where only a few elements are likely to change.
+
+Semantic meaning: Keys can provide additional semantic meaning to a list of elements, especially if the keys are based on a unique identifier or property of each element. This can make the list easier to understand and work with for developers and users alike.
+
+We need keys for sure when we have same type of elements rendering together like a list of li's
+
+9.Can we use index as key in react?
+yes we can use, but its not recommended. The reason for this is that using the index as a key can lead to subtle bugs and unexpected behavior in certain situations. For example, if items are added or removed from the middle of the list, the indexes of the remaining items will change, causing React to re-render more elements than necessary. This can be especially problematic for large or dynamic lists, where re-rendering can be a performance bottleneck.
+
+10.What is props?
+Props is a shorthand for properties. They are just like passing arguments to a function. In React, props (short for properties) are used to pass data and behavior from one component to another. Props are a way to make a component more dynamic and reusable, by allowing it to be customized with different data and behavior depending on where it is used.
+
+11 config driven UI?
+Writing Fe based on configurations. conditinally rendering based on pre set configurations.
+
+
