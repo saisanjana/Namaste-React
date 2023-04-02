@@ -1,0 +1,32 @@
+1. What is the difference between names eport, default export and export * as?
+Named exports are given a name and they can be imported by that name only in other files. We can export 
+multiple values using named exports.
+e.x we can export a variable and a function:
+export myFunc = () =>{}
+exprot myVar = 34
+
+These are exports that are marked as default and can be imported using any name in another module.
+There can be only one default export in a file.
+export default const var = 56
+
+This syntax allows you to re-export all named exports from another module under a new namespace. 
+For example, if you have a module called utils.js that exports several named functions, 
+you can re-export them under a new namespace like this:
+export * as utils from './utils';
+
+2.what is the importance of config.js file?
+We may end up using a single piece of data in many files. Initialising it in every file will be a
+tedious process if something needs to be changed in the data later. Rather we can put all the constants
+in a a single file like config.js and export them. Then they can be imported wherever they are needed.
+
+3.What are react hooks?
+Hooks in React are functions that allow functional components to have stateful behavior,
+lifecycle methods, and access to context objects. They provide a way to reuse stateful logic and
+behavior between different components without the need for class-based components or higher-order 
+components.
+
+4.Why do we need use state hook?
+The useState hook provides a way to add stateful behavior to functional components by allowing them 
+to have a local state that can be updated and cause a re-render. The hook returns an array with 
+two elements: the current state value and a function to update the state.
+
