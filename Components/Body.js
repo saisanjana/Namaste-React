@@ -1,11 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import RestaurantCard from "./RestaurantCard";
-import { RestoCards } from "../config";
+import Loader from "./Loader";
+// import { RestoCards } from "../config";
 
-const filterData = (searchText) => {
-    console.log(searchText)
-    return RestoCards.filter((restaurant)=>{
-        console.log(restaurant)
+const filterData = (searchText, allRestaurants) => {
+    return allRestaurants.filter((restaurant)=>{
         return restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
     });
 }
@@ -13,9 +12,21 @@ const filterData = (searchText) => {
 const Body = () => {
 
     const [searchText, setSearchText] = useState("");
-    const [restaurants, setRestaurants] = useState(RestoCards);
+    const [filteredRestaurants, setFilteresRestaurants] = useState([]);
+    const [allRestaurants, setAllRestaurants] = useState([]);
 
-    return (
+    useEffect(()=>{
+        getRestaurants();
+    },[])
+
+    const getRestaurants = async() => {
+        let data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4376372&lng=78.4766152&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+        setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+        setFilteresRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    }
+
+    return !allRestaurants.length ? (<Loader/>) : (
         <React.Fragment>
             <div className="searchBox">
                 <input
@@ -27,18 +38,18 @@ const Body = () => {
                     }}
                 />
                 <button className="searchButton" onClick={()=>{
-                    let data = filterData(searchText);
-                    setRestaurants(data);
+                    let data = filterData(searchText,allRestaurants);
+                    setFilteresRestaurants(data);
                 }}>
                     Search
                 </button>
             </div>
-            <div className="appBody">
-                {restaurants.map((restaurant)=>{
-                    return <RestaurantCard {...restaurant.data}/>
+            {filteredRestaurants.length ? <div className="appBody">
+                {filteredRestaurants.map((restaurant)=>{
+                    return <RestaurantCard {...restaurant.data} key={restaurant.data.id}/>
                 })}
 
-            </div>
+            </div> : <div className="noDataFound">No Restaurants found with your search</div>}
         </React.Fragment>
         );
 }

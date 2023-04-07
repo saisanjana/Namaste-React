@@ -1,0 +1,52 @@
+1. What is Microservice?
+It is a software methodology which structures applications as a collection of small and independent
+services. Each service is focussed on a specific business requirement and can be developed, deployed,
+scaled separately independent from others.
+
+2. What is Monolith Architecture?
+It is a software architecture style in which all the components of an application are combined into a 
+single self contained unit. They use single programing language and a sinlge technology. It will be hard to maintain, debug and deploy in this style of architecture.
+
+3. What is the difference between Microservice and Monolith Architecture.
+Size and complexity: Monolithic applications tend to be larger and more complex than microservices-based applications, as all the components are bundled together. Microservices-based applications, on the other hand, are smaller and more modular, with each service focused on a specific business capability.
+
+Scalability: In a monolithic architecture, all components must be scaled together, which can limit scalability. In a microservices architecture, individual services can be scaled independently, making it easier to handle changes in demand.
+
+Flexibility: Monolithic applications are typically written in a single programming language and use a single technology stack. In contrast, microservices-based applications can be written in different languages and use different technologies, making them more flexible.
+
+Fault tolerance: Monolithic applications are less fault-tolerant than microservices-based applications, as the failure of any one component can bring down the entire application. In a microservices architecture, individual services can fail without affecting the entire system.
+
+Development and deployment: Monolithic applications require all components to be developed and deployed together, which can make the process more complex and time-consuming. In a microservices architecture, each service can be developed and deployed independently, making the process faster and more flexible.
+
+4. Why do we need useEffect hook?
+To know the updations in state and perform actions like fetching data, updating DOM, cleaning up resources etc.
+
+5. What is optional chaining?
+In Javascript, when we try to access properties/methods of an object, to be sure if the object we are accessing is present or not, we use optional chaining. ex. ABC?.full 
+if (obj?.prop1?.prop2) {
+  // do something with obj.prop1.prop2
+}
+The optional chaining operator can also be used with method calls, like this:
+
+obj?.method1?.();
+In this example, if obj exists and has a method called method1, it will be called. If obj does not exist or does not have a method called method1, the expression will evaluate to undefined instead of throwing an error.
+
+6. What is shimmer UI?
+Shimmer UI is a design pattern used in user interfaces to provide visual feedback to users while content is loading. The shimmer effect involves displaying a placeholder or skeleton view of the content while the actual content is being fetched or loaded.
+
+7. What is the difference between JS statement and JS expression?
+Statements are actions or commands that can be executed and expressions are values that can be evaluated
+
+8. What is Conditional Rendering?
+Rendering UI based on conditions. Condtions can be coming from state variables.
+
+9. What is CORS?
+CORS is cross origin resource sharing which is a web standard. It doesn't allow sharing of resources among different domains. 
+Browser makes a preflight options request before the actual http request, and knows if BE is setting any CORS config. If backend is not sending any cors header (access-control-allow-origin), browser will throw a error by itself, if BE configured CORS headers, then browser won't throw any error.
+To bypass this browser CORS, we can use plugins like Allow Cors.
+
+10. What is async await?
+Async/await is a feature in JavaScript that allows you to write asynchronous code that looks and behaves like synchronous code
+
+11. why await in .json() function?
+The await keyword is used to pause the execution of the current function until the promise returned by the .json() method is resolved. The .json() method returns a promise that resolves to the parsed JSON data when the response from the server is received. By using await with the .json() method, we can ensure that the parsed JSON data is available before proceeding with any further operations.

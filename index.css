@@ -62,6 +62,18 @@ body{
     /* border: 2px solid black; */
     width: 220px;
 }
+.loaderCard{
+    width: 220px;
+    height: 400px;
+    background-color: lightgray;
+    animation: blinker 1.5s linear infinite;
+    margin: 10px;
+}
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
 .restoCard:hover{
     border: 1px solid grey;
 }
@@ -84,4 +96,17 @@ body{
     background-color: orange;
     border: 0;
     border-radius: 10px;
+}
+.noDataFound{
+    margin: 0px auto;
+    padding-top: 20px;
+    font-weight: 900;
+    font-size: large;
+}
+
+.loader{
+    margin: 0px auto;
+    padding-top: 20px;
+    font-weight: 900;
+    font-size: large;
 }
