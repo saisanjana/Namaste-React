@@ -22,8 +22,10 @@
     padding-right: 150px;
 }
 
-.header > ul >li{
+.headerItem{
     padding: 20px;
+    text-decoration: none;
+    border-bottom: none;
 }
 body{
     margin: 0px;
@@ -109,4 +111,18 @@ body{
     padding-top: 20px;
     font-weight: 900;
     font-size: large;
+}
+
+.restaurantDetailsHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menuItemImage {
+    height: 200px;
+    width: 200px;
+}
+
+.formikField {
+    margin-top: 20px ;
 }

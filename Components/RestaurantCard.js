@@ -1,8 +1,10 @@
+import { imageUrl } from "../config";
+
 const RestaurantCard = (props) => {
     let {cloudinaryImageId, name, cuisines, avgRating} = props
     return (
         <div className="restoCard">
-            <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/" + cloudinaryImageId}/>
+            <img src={imageUrl + cloudinaryImageId}/>
             <div className="restoCardItems">
                 <h3>{name}</h3>
                 <h4>{cuisines.join(", ")}</h4>

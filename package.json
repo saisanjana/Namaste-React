@@ -19,14 +19,16 @@
   },
   "homepage": "https://github.com/saisanjana/Namaste-React#readme",
   "dependencies": {
+    "formik": "^2.2.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
     "parcel": "^2.8.3",
     "process": "^0.11.10"
   },
-  "browserslist" : [
+  "browserslist": [
     "last 6 versions"
   ]
 }

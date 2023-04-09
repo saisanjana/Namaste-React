@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import RestaurantCard from "./RestaurantCard";
 import Loader from "./Loader";
 // import { RestoCards } from "../config";
+import SecondaryHeader from "./SecondaryHeader";
+import { Link } from "react-router-dom";
 
 const filterData = (searchText, allRestaurants) => {
     return allRestaurants.filter((restaurant)=>{
@@ -28,6 +30,7 @@ const Body = () => {
 
     return !allRestaurants.length ? (<Loader/>) : (
         <React.Fragment>
+            <SecondaryHeader/>
             <div className="searchBox">
                 <input
                     className="searchContainer"
@@ -46,7 +49,9 @@ const Body = () => {
             </div>
             {filteredRestaurants.length ? <div className="appBody">
                 {filteredRestaurants.map((restaurant)=>{
-                    return <RestaurantCard {...restaurant.data} key={restaurant.data.id}/>
+                    return <Link to={`/restaurant/${restaurant.data.id}`}>
+                    <RestaurantCard {...restaurant.data} key={restaurant.data.id}/>
+                    </Link>
                 })}
 
             </div> : <div className="noDataFound">No Restaurants found with your search</div>}

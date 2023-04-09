@@ -1,0 +1,17 @@
+1. Various ways to add images in react?
+We can add direct links to the src attributr of img tag. (cdn)
+We can add the image as an asset and import it in the component and use the imported image in src
+
+2. What would happen if we do console.log(useState())?
+We would get an error because we are not catching the returned value in an array
+TypeError: Cannot read properties of null (reading 'useState')
+
+3. How will use effect behave if we don't pass in any dependency array?
+The callback passed will get executed on every state change.
+
+4. What is SPA?
+stands for single page application where we have code for all paths of the project. (All routes)
+We don't need to be fetching the code for every route.
+
+5. What is the difference between client side routing and server side routing?
+In client side routing, we have code for every single route and in server side routing, we have to keep fetching the code of that particular route.
