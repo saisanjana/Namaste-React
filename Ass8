@@ -1,0 +1,42 @@
+1. How do you create nested routes react-router-dom configuration?
+By using "children" property while creating browser router.
+
+2. Different routers available in react-router-dom?
+BrowserRouter: This router uses HTML5 history API to synchronize the UI with the URL in the browser. It's commonly used for web applications.
+
+HashRouter: This router uses the hash part of the URL to synchronize the UI with the URL in the browser. It's useful for applications that need to support older browsers.
+
+MemoryRouter: This router keeps the history of the application in memory and does not change the URL in the browser's address bar. It's useful for testing and server-side rendering.
+
+NativeRouter: This router is used for React Native applications and uses the native navigation APIs of the platform.
+
+StaticRouter: This router is used for server-side rendering and does not update the URL in the browser's address bar.
+
+Router: This is a generic router component that can be used to create custom routers.
+
+
+3. What is the order of life cycle methods called in class based components?
+Constructor
+Component Render
+ComponentDidMount
+ComponentDidUpdate
+ComponentWillUnmount
+
+4. Why do we use componentDidMount?
+ComponentDidMount gets called after initial render for only one time. So Its a great place to call any api calls.
+
+5. Why do we use componentWillUnMount?
+We use it to clean up any data, events, intervals running in the component. It gets executed when the component id about to unmount.
+
+6. Why do we use super(props) in constructor?
+super method is used to call the constructor of the parent class. and the parent class of our class component will be React.Component . So, to supply the porps to react so that it manages to serve the props to entire component, we do this.
+
+7. why can't we have async callback function in useEffect?
+The useEffect hook is designed to handle side effects, which are operations that occur outside of the normal flow of a component, such as fetching data from a server or updating the DOM. Side effects can be synchronous or asynchronous.
+
+However, the callback function passed to useEffect should be synchronous for two main reasons:
+
+To ensure that the component is updated synchronously: When a component is updated, React re-renders the component and updates the DOM. If the useEffect callback function were asynchronous, it could potentially update the component after it has already been re-rendered, causing inconsistencies between the state of the component and the state of the DOM.
+
+To ensure that the cleanup function is always synchronous: The useEffect hook returns a cleanup function that is used to clean up any resources or subscriptions created by the component. If the callback function were asynchronous, it could potentially return a promise instead of a cleanup function, which would cause issues with resource management and cleanup.
+
