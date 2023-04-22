@@ -1,30 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import Loader from "./Loader";
 import { imageUrl } from "../config";
+import useRestaurant from "../Hooks/useRestaurant";
 
 const RestaurantDetails = () => {
-    const {id} = useParams();
-    const [details, setDetails] = useState(null);
-    const [menu, setMenu] = useState(null);
-    useEffect(()=>{
-        getRestaurantInfo();
-    },[])
-
-    const getRestaurantInfo = async() => {
-        let json = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.4376372&lng=78.4766152&restaurantId=${id}`);
-        let data = await json.json();
-        setDetails(data.data.cards[0].card.card.info);
-        let menuItems = []
-        data.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.forEach((item) => {
-            if(item.card.card.itemCards){
-                item.card.card.itemCards.forEach((itemCard) => {
-                    menuItems.push(itemCard.card.info)
-                })
-            }
-        })
-        setMenu(menuItems);
-    }
+    const [details, menu] = useRestaurant();
     
     return (!details || !menu ? <Loader/> : 
         <div className="sHeader">

@@ -1,0 +1,32 @@
+1. When and why do we need lazy()?
+For projects with larger bundle size, its not good to just have one bundle file. Id will screw up the
+performance when the whole app needs to be loaded with only one single bundle file. So we need to fetch
+the code of modules dynamically. For ex. based on routes, the initial load's bundle in swiggy need not have the code of /cart. So, when user clicks on cart, the cart's code will be fetched. This is called as code splitting/ dynamic importing / file chunking etc.
+So, to import components dynamically, we have to use lazy.
+Syntax const comp = lazy(()=>import("path of file"));
+lazy comes from react library.
+
+2. What is suspense?
+So when user clicks on /cart cart's code is fetched and until the bundle is fetched, react tries to render which is still not there, then is suspends the rendering. So, to handle that we have to wrap the component which is dynamically loaded in <Suspend fallback=<Loader/>>
+React make sures that fallback is rendered until the bundle of the component is fetched.
+
+3. React uses a feature called "concurrent mode" to enable the use of the <Suspense> component and handle components that suspend while waiting for asynchronous data.
+
+In concurrent mode, React can work on rendering multiple parts of the component tree simultaneously, without blocking the UI thread. This allows React to show a fallback UI for a suspended component while other parts of the application continue to render.
+
+When a component within a <Suspense> boundary suspends, React will stop rendering the suspended subtree and instead render the fallback UI. This will keep the UI responsive and prevent the application from appearing frozen.
+
+While the suspended component is waiting for data, React will continue rendering the rest of the component tree. Once the data is available, React will resume rendering the suspended component, replacing the fallback UI with the actual content.
+
+React uses a feature called "time slicing" to manage the concurrent rendering of the component tree. Time slicing breaks up the work of rendering a component tree into smaller "chunks" that can be executed over multiple frames, allowing React to keep the UI responsive while still making progress on rendering the component tree.
+
+4. Disadvantages og code splitting
+Increased complexity: Code splitting can add complexity to the development process, as it requires careful planning and management of code dependencies. Developers must ensure that the code is split into the right chunks and that dependencies are handled correctly, which can be time-consuming and require additional tooling.
+
+Network overhead: While code splitting can reduce the amount of code that needs to be downloaded by the client, it can also result in additional network requests. This can increase the overall network overhead and may impact the perceived performance of the application.
+
+Increased maintenance: As the code is split into smaller chunks, there may be an increased number of files and folders to manage. This can make maintenance and debugging more complex, especially if the code is split across multiple teams or repositories.
+
+Compatibility issues: Code splitting can also create compatibility issues if the application is run on older browsers or devices that do not support the necessary features. In some cases, fallbacks or alternative approaches may be needed to ensure that the application remains functional on all devices.
+
+Initial load time: While code splitting can improve the perceived performance of an application, it can also increase the initial load time as the client needs to download and process multiple chunks of code. This may be especially noticeable on slower connections or older devices.
