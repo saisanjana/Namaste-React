@@ -1,0 +1,20 @@
+1. All ways of writing css
+-> index.css 
+-> inline css
+-> styled components
+-> component Libraries
+
+2. How do we configure tailwind
+-> First we have to install tailwind and postcss. Postcss is a package to convert tailwind classes to
+native css classes.
+-> We have initialise tailwind so that it creates tailwinf config file. We have to give the 'content'
+property of the config file to which files use tailwind css.
+-> we have to configure .postcssrc file to tell bundler to compile the css classes while building.
+-> import tailwind in index.css
+-> and then start using the base components of the tailwind framework
+
+3. What are things present in tailwind config file?
+'content' -> specify the files to scan which uses tailwind
+'theme' -> to configure key value pairs which define specific values for each category like colors spacing typography and more
+'extend' -> configuration to extend or override the default set of styles provided by tailwind
+'plugins' -> configuration to extend the tailwinds functionality like utilities

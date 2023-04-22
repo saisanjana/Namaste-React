@@ -31,23 +31,23 @@ const Body = () => {
     return !allRestaurants.length ? (<Loader/>) : (
         <React.Fragment>
             <SecondaryHeader/>
-            <div className="searchBox">
+            <div className="mx-96">
                 <input
-                    className="searchContainer"
+                    className="ml-80 bg-orange-50"
                     type="text"
                     value={searchText}
                     onChange={(e)=>{
                         setSearchText(e.target.value);
                     }}
                 />
-                <button className="searchButton" onClick={()=>{
+                <button className="ml-12 bg-orange-400 p-1 rounded-md" onClick={()=>{
                     let data = filterData(searchText,allRestaurants);
                     setFilteresRestaurants(data);
                 }}>
                     Search
                 </button>
             </div>
-            {filteredRestaurants.length ? <div className="appBody">
+            {filteredRestaurants.length ? <div className="flex flex-wrap px-44">
                 {filteredRestaurants.map((restaurant)=>{
                     return <Link to={`/restaurant/${restaurant.data.id}`}>
                     <RestaurantCard {...restaurant.data} key={restaurant.data.id}/>

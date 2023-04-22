@@ -8,7 +8,7 @@ const RestaurantDetails = () => {
     const [details, menu] = useRestaurant();
     
     return (!details || !menu ? <Loader/> : 
-        <div className="sHeader">
+        <div className="px-44 my-8">
             <div className="restaurantDetailsHeader">
                 <h1>{details.name}</h1>
                 <h2>{details.avgRating} Stars</h2>
@@ -20,9 +20,9 @@ const RestaurantDetails = () => {
             {
                 menu.map((item)=>{
                     return <React.Fragment key={item.id}>
-                    <div className="restaurantDetailsHeader">
-                        <h3>{item.name}</h3>
-                        {item.imageId ? <img src={imageUrl + item.imageId} className="menuItemImage"/> : <div className="menuItemImage">No Image</div>}
+                    <div className="flex justify-between">
+                        <h3 className="my-14">{item.name}</h3>
+                        {item.imageId ? <img src={imageUrl + item.imageId} className="w-40"/> : <div className="w-40">No Image</div>}
                     </div>
                     <hr/>
                     </React.Fragment>
