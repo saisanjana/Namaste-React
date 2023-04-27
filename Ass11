@@ -1,0 +1,16 @@
+1. What is prop drilling?
+Prop drilling is a concept where we passin props way down the line of children in the component
+heirarchy. that is passing props to childern and again to its children to its childeren until to the 
+component which we require data.
+
+2. What is lifting up state?
+When there are two separate components, and we have to modify the state of one component from other
+component and vice versa. Then we have to level up the state, that is create a parent for both 
+the children and maintian the common state in the parent component. and we can pass in the common state to both the children.
+
+3. What is context provider and context consumer?
+context consumer is like a component where we can access the context.
+context provider is to provide the update state to its children components.
+
+4. if you don't pass value to the provider, will it take the default value?
+No, it will be undefined.

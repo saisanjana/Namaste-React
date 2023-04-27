@@ -1,4 +1,4 @@
-import React,{Suspense, lazy} from "react";
+import React,{Suspense, lazy, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
@@ -10,17 +10,23 @@ import RestaurantDetails from "./Components/RestaurantDetails";
 import RouteError from "./Components/RouteError";
 import SignIn from "./Components/SignIn";
 import Loader from "./Components/Loader";
-
+import UserContext from "./Contexts/UserContext";
+import RestoContext from "./Contexts/RestoContext";
 
 
 
 
 const App = () => {
+    const [user, setUser] = useState({});
     return (
         <div className="appLayout">
-            <Header/>
-            <Outlet/>
-            <Footer/>
+            <UserContext.Provider value={{user:user, setUser:setUser }}>
+                <RestoContext.Provider value={{dummy:"dummy"}}>
+                    <Header/>
+                    <Outlet/>
+                    <Footer/>
+                </RestoContext.Provider>
+            </UserContext.Provider>
         </div>
         );
 }
