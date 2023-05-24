@@ -12,13 +12,16 @@ import SignIn from "./Components/SignIn";
 import Loader from "./Components/Loader";
 import UserContext from "./Contexts/UserContext";
 import RestoContext from "./Contexts/RestoContext";
-
+import store from "./Redux/store";
+import {Provider} from "react-redux";
+import Cart from "./Components/Cart";
 
 
 
 const App = () => {
     const [user, setUser] = useState({});
     return (
+        <Provider store={store}>
         <div className="appLayout">
             <UserContext.Provider value={{user:user, setUser:setUser }}>
                 <RestoContext.Provider value={{dummy:"dummy"}}>
@@ -28,6 +31,7 @@ const App = () => {
                 </RestoContext.Provider>
             </UserContext.Provider>
         </div>
+        </Provider>
         );
 }
 
@@ -56,6 +60,10 @@ const router = createBrowserRouter([
             {
                 path: "/signin",
                 element: <SignIn/>
+            },
+            {
+                path: "/cart",
+                element: <Cart/>
             }
         ]
     },

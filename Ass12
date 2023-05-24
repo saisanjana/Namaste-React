@@ -1,0 +1,36 @@
+1. useContext vs Redux
+Both useContext and Redux are state management solutions in React, but they have different purposes and use cases.
+
+useContext is a built-in hook in React that allows components to access a value stored in the nearest Context provider in the component tree. It is primarily used for sharing state or other data between components without the need for prop drilling (passing data through intermediate components). useContext is a simpler and lightweight solution compared to Redux and is suitable for smaller applications or components that have a shallow component tree.
+
+On the other hand, Redux is a state management library that provides a predictable state container for JavaScript applications. Redux manages the state of an entire application in a single global store and enforces a strict unidirectional data flow. It provides a set of core concepts like actions, reducers, and selectors to manage and update the state. Redux is particularly useful for large-scale applications with complex state requirements, where multiple components across the application may need access to the same data.
+
+2. Advantage of Redux toolkit over Redux
+Simplicity and Productivity: Redux Toolkit reduces the boilerplate code required to set up a Redux store and write reducers. It provides a simpler and more intuitive API, allowing developers to be more productive and focus on application logic rather than configuration.
+
+Automatic Immutable State Updates: Redux Toolkit uses the immer library internally, which enables writing reducers with mutable code syntax while handling immutability under the hood. This means you can write code that directly modifies the state, making reducers easier to write and understand.
+
+Built-in Thunk and Saga Middleware: Redux Toolkit includes built-in support for both the redux-thunk and redux-saga middleware, which are commonly used for handling asynchronous actions in Redux applications. This eliminates the need to manually configure and add middleware to your store.
+
+Entity Adapter: Redux Toolkit provides an createEntityAdapter utility, which simplifies the management of normalized data structures. It offers a convenient way to define entity schemas, perform CRUD operations, and handle updates to the entity state.
+
+DevTools Configuration: Redux Toolkit configures the Redux DevTools extension automatically, providing a better development experience out of the box. It sets up the DevTools with the necessary middleware and makes it easier to inspect and debug the state changes in your application.
+
+Opinionated File Structure: Redux Toolkit promotes a recommended file structure and organization for Redux code. It encourages colocating related actions, reducers, and selectors in a single file, making it easier to find and manage the code responsible for a specific feature.
+
+Seamless Migration: Redux Toolkit provides a smooth migration path for existing Redux applications. It offers a createSlice utility, which allows you to gradually convert your existing reducers into slice reducers without disrupting the rest of your codebase.
+
+3. what is dispatcher?
+When you create a Redux store using Redux Toolkit's configureStore function, it automatically sets up the dispatch function for you. You can access the dispatch function either directly from the store or by using the useDispatch hook in React components.
+
+The dispatch function takes an action object as an argument and sends it to the Redux store. The action object typically has a type property that describes the type of action being dispatched. You can also include additional data or payload in the action object to provide information for the reducers to update the state.
+4. what isreducer?
+In Redux, a reducer is a pure function responsible for specifying how the application's state should change in response to dispatched actions. It takes the current state and an action as input and returns a new state.
+
+5. what is slice
+In Redux Toolkit, a "slice" refers to a collection of Redux-related logic for a specific feature or domain in your application. It encapsulates the reducer, action creators, and selectors that are associated with that particular piece of state.
+
+Slices provide a structured and organized way to manage and modularize your Redux code. They help in keeping related code together and make it easier to understand and maintain.
+
+6. What is selector?
+In Redux, a selector is a function that retrieves and computes specific data from the Redux store. It allows you to extract and derive data from the state in a structured and efficient way, providing a layer of abstraction between the state and the components that need to access it.
