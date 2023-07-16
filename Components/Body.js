@@ -36,18 +36,19 @@ const Body = () => {
                     className="ml-80 bg-orange-50"
                     type="text"
                     value={searchText}
+                    data-testid={"searchInput"}
                     onChange={(e)=>{
                         setSearchText(e.target.value);
                     }}
                 />
-                <button className="ml-12 bg-orange-400 p-1 rounded-md" onClick={()=>{
+                <button className="ml-12 bg-orange-400 p-1 rounded-md" data-testid="search-btn" onClick={()=>{
                     let data = filterData(searchText,allRestaurants);
                     setFilteresRestaurants(data);
                 }}>
                     Search
                 </button>
             </div>
-            {filteredRestaurants.length ? <div className="flex flex-wrap px-44">
+            {filteredRestaurants.length ? <div className="flex flex-wrap px-44" data-testid="reslist">
                 {filteredRestaurants.map((restaurant)=>{
                     return <Link to={`/restaurant/${restaurant.data.id}`}>
                     <RestaurantCard {...restaurant.data} key={restaurant.data.id}/>
